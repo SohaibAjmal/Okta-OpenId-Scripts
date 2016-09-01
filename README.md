@@ -7,9 +7,13 @@ made to retrieve the id token and/or access token.
 
 In order to run the scripts you would need following
 
-1) cURL \n
-2) Python 2.7 \n
-3) Python's "requests" library  \n
+1) cURL 
+
+
+2) Python 2.7 
+
+
+3) Python's "requests" library  
 
 # Note
 

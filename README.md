@@ -28,9 +28,13 @@ This script generates Id Token or Access Token based on the response_type (does 
 provide all of following input to the script in the same order 
 
 i) Org url (for example org-name.okta.com or org-name.oktapreview.com)
+
 ii) Username (Okta user for whom you would want to generate the id or access token e.g. username@example.com)
+
 iii) Client ID (Client Id from Open ID app in Okta)
+
 iv) Redirect URI (Redirect URI same as set in Open ID app whose client id you will use as input)
+
 v) Token Type (It can be either id_token or token (for access token))
 
 Examples:

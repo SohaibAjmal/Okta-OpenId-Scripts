@@ -40,14 +40,17 @@ v) Token Type (It can be either id_token or token (for access token))
 Examples:
 
 python ImplicitFlow.py orgname.okta.com username@examplee.com <clientId> <redirectUri> id_token -> For Id Token
+
 python ImplicitFlow.py orgname.okta.com username@examplee.com <clientId> <redirectUri> token -> For Access Token
+
 python ImplicitFlow.py orgname.oktapreview.com.com username@examplee.com <clientId> <redirectUri> token -> Access token for preview org
 
 
 
 
 
-1) Authorization Code Flow (AuthorizationCodeFlow.py)
+
+2) Authorization Code Flow (AuthorizationCodeFlow.py)
 
 This script generates Id Token and Access Token via authorization code flow where code is first generated via 
 GET  /authorize call that is exchanged for id and access token via POST /token

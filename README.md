@@ -44,6 +44,9 @@ python ImplicitFlow.py orgname.okta.com username@examplee.com <clientId> <redire
 python ImplicitFlow.py orgname.oktapreview.com.com username@examplee.com <clientId> <redirectUri> token -> Access token for preview org
 
 
+
+
+
 1) Authorization Code Flow (AuthorizationCodeFlow.py)
 
 This script generates Id Token and Access Token via authorization code flow where code is first generated via 

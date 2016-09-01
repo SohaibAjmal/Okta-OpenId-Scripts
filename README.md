@@ -52,15 +52,22 @@ GET  /authorize call that is exchanged for id and access token via POST /token
 Please make sure to use Web App for this (not Single Page App) as you would need client secret for this
 
 i) Org url (for example org-name.okta.com or org-name.oktapreview.com)
+
 ii) Username (Okta user for whom you would want to generate the id or access token e.g. username@example.com)
+
 iii) Client ID (Client Id from Open ID app in Okta)
+
 iv) Client Secret (Client Secret from Open ID app in Okta)
+
 v) Redirect URI (Redirect URI same as set in Open ID app whose client id you will use as input)
+
 vi) Token Type (It will always be code)
 
 Examples:
 
 python AuthorizationCodeFlow.py orgname.okta.com username@examplee.com <clientId> <clientSecret> <redirectUri> id_token -> For Id Token
+
 python AuthorizationCodeFlow.py orgname.okta.com username@examplee.com <clientId> <clientSecret>  <redirectUri> token -> For Access Token
+
 python AuthorizationCodeFlow.py orgname.oktapreview.com.com username@examplee.com <clientId> <clientSecret> <redirectUri> token -> Access token for preview org
 

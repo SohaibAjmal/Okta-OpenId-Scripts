@@ -39,11 +39,11 @@ v) Token Type (It can be either id_token or token (for access token))
 
 Examples:
 
-python ImplicitFlow.py orgname.okta.com username@example.com <clientId> <redirectUri> id_token -> For Id Token
+python ImplicitFlow.py orgname.okta.com username@example.com clientId redirectUri id_token -> For Id Token
 
-python ImplicitFlow.py orgname.okta.com username@example.com <clientId> <redirectUri> token -> For Access Token
+python ImplicitFlow.py orgname.okta.com username@example.com clientId redirectUri token -> For Access Token
 
-python ImplicitFlow.py orgname.oktapreview.com.com username@example.com <clientId> <redirectUri> token -> Access token for preview org
+python ImplicitFlow.py orgname.oktapreview.com.com username@example.com clientId redirectUri token -> Access token for preview org
 
 
 
@@ -71,9 +71,9 @@ vi) Token Type (It will always be code)
 
 Examples:
 
-python AuthorizationCodeFlow.py orgname.okta.com username@example.com <clientId> <clientSecret> <redirectUri> id_token -> For Id Token
+python AuthorizationCodeFlow.py orgname.okta.com username@example.com clientId clientSecret redirectUri id_token -> For Id Token
 
-python AuthorizationCodeFlow.py orgname.okta.com username@example.com <clientId> <clientSecret>  <redirectUri> token -> For Access Token
+python AuthorizationCodeFlow.py orgname.okta.com username@example.com clientId clientSecret  redirectUri token -> For Access Token
 
-python AuthorizationCodeFlow.py orgname.oktapreview.com.com username@example.com <clientId> <clientSecret> <redirectUri> token -> Access token for preview org
+python AuthorizationCodeFlow.py orgname.oktapreview.com.com username@example.com clientId clientSecret redirectUri token -> Access token for preview org
 

@@ -7,73 +7,33 @@ made to retrieve the id token and/or access token.
 
 In order to run the scripts you would need following
 
-1) cURL 
-
-
-2) Python 2.7 
-
-
-3) Python's "requests" library  
+ -Python 2.7 
+- pip install requests
+- pip install pyjwt
 
 # Note
 
-The scripts need to obtain sessionToken via primary authentication for your Okta org. These scripts do not take care of Multifactor
-authentication. Therefore, please turn Off MFA polciies on your org before running the scripts. Otherwise, scripts will fail. 
+Scripts do not take care of Multifactor authentication. Therefore, please turn Off MFA polciies on your org before running the scripts. 
 
 # Usage and Examples.
 
-1) Implicit Flow (ImplicitFlow.py)
-
-This script generates Id Token or Access Token based on the response_type (does not support hybrid at the moment). You would need to 
-provide all of following input to the script in the same order 
-
-i) Org url (for example org-name.okta.com or org-name.oktapreview.com)
-
-ii) Username (Okta user for whom you would want to generate the id or access token e.g. username@example.com)
-
-iii) Client ID (Client Id from Open ID app in Okta)
-
-iv) Redirect URI (Redirect URI same as set in Open ID app whose client id you will use as input)
-
-v) Token Type (It can be either id_token or token (for access token))
-
-Examples:
-
-python ImplicitFlow.py orgname.okta.com username@example.com clientId redirectUri id_token -> For Id Token
-
-python ImplicitFlow.py orgname.okta.com username@example.com clientId redirectUri token -> For Access Token
-
-python ImplicitFlow.py orgname.oktapreview.com.com username@example.com clientId redirectUri token -> Access token for preview org
+- Gettign id token via Open ID Connect Implicit Flow
+python OIDC_ImplicitFlow.py -orgUrl example.okta.com -user :username -clientId :clientId -scopes openid+email+profile -redirectUri https://www.google.com/ -token id_token
 
 
+- Gettign access token via Open ID Connect Implicit Flow
+python OIDC_ImplicitFlow.py -orgUrl exmple.okta.com -user :username -clientId :clientId -scopes openid+email+profile -redirectUri https://www.google.com/ -token token
 
 
+- Gettign access token and id token (if openid scope specified) via Open ID Connect Authorization Flow
+python OIDC_AuthorizationCodeFlow.py -orgUrl example.okta.com -user sohaib.ajmal -clientId QpTxUW8wEBSsrqSHvn9s -clientSecret :clientSecret -scopes openid+email+profile -redirectUri https://www.google.com/ 
+
+- Gettign id token via OAuth (uses custom authorizaiton server in Okta) Implicit Flow
+python OAuth_ImplicitFlow.py -orgUrl example.oktapreview.com -authServerId :authServerId -user :username -clientId :clientId -scopes openid+email+groups -redirectUri https://www.google.com/ -token id_token
+
+- Gettign access token via OAuth (uses custom authorizaiton server in Okta) Implicit Flow
+python OAuth_ImplicitFlow.py -orgUrl example.oktapreview.com -authServerId :authServerId -user :username -clientId :clientId -scopes openid+email+groups -redirectUri https://www.google.com/ -token token
 
 
-2) Authorization Code Flow (AuthorizationCodeFlow.py)
-
-This script generates Id Token and Access Token via authorization code flow where code is first generated via 
-GET  /authorize call that is exchanged for id and access token via POST /token
-
-Please make sure to use Web App for this (not Single Page App) as you would need client secret for this
-
-i) Org url (for example org-name.okta.com or org-name.oktapreview.com)
-
-ii) Username (Okta user for whom you would want to generate the id or access token e.g. username@example.com)
-
-iii) Client ID (Client Id from Open ID app in Okta)
-
-iv) Client Secret (Client Secret from Open ID app in Okta)
-
-v) Redirect URI (Redirect URI same as set in Open ID app whose client id you will use as input)
-
-vi) Token Type (It will always be code)
-
-Examples:
-
-python AuthorizationCodeFlow.py orgname.okta.com username@example.com clientId clientSecret redirectUri id_token -> For Id Token
-
-python AuthorizationCodeFlow.py orgname.okta.com username@example.com clientId clientSecret  redirectUri token -> For Access Token
-
-python AuthorizationCodeFlow.py orgname.oktapreview.com.com username@example.com clientId clientSecret redirectUri token -> Access token for preview org
-
+- Gettign access token and id token via OAuth (uses custom authorizaiton server in Okta) Authorization Code Flow
+python OAuth_AuthorizationCodeFlow.py -orgUrl example.oktapreview.com -authServerId :authServerId -user :username -clientId :clientId -clientSecret :clientSecret -scopes openid+email+groups -redirectUri https://www.google.com/
